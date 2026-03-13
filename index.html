@@ -19,23 +19,46 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        /* --- SUPORTE WHATSAPP --- */
-        .whatsapp-top-bar {
-            background: linear-gradient(90deg, #25D366 0%, #128c7e 100%);
-            color: white !important;
-            text-align: center;
-            padding: 10px;
+        /* --- BARRA DUPLA NO TOPO --- */
+        .double-top-bar {
+            display: flex;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
             font-weight: 800;
+            text-align: center;
+            position: relative;
+            z-index: 1001;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .bar-half {
+            flex: 1;
+            padding: 12px 5px;
             text-decoration: none !important;
+            color: white !important;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 8px;
-            font-size: 0.85rem;
-            z-index: 1001;
-            position: relative;
+            transition: 0.3s;
         }
 
+        /* Lado Suporte: Verde */
+        .bar-support {
+            background: linear-gradient(90deg, #128c7e 0%, #25D366 100%);
+        }
+
+        /* Lado Brinde: Degradê Verde para Dourado/Destaque */
+        .bar-gift {
+            background: linear-gradient(90deg, #25D366 0%, #d4af37 100%);
+        }
+
+        .bar-half:hover {
+            filter: brightness(1.1);
+        }
+
+        /* BOTÃO FLUTUANTE */
         .whatsapp-float-premium {
             position: fixed;
             bottom: 25px;
@@ -54,52 +77,70 @@
             transition: 0.3s;
         }
 
-        /* --- SEÇÃO VÍDEO VERTICAL (PROVA REAL) --- */
-        .demo-section {
+        /* SEÇÃO DE BRINDE (CANAL) */
+        .gift-section {
+            background: #111;
             padding: 60px 0;
-            background: #0a0a0a;
-            text-align: center;
         }
-        
+
+        .gift-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
+            border: 2px dashed #d4af37;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn-canal {
+            background: #d4af37;
+            color: #000 !important;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none !important;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-canal:hover { transform: scale(1.05); background: #f1c40f; }
+
+        /* VÍDEO VERTICAL FRAME */
         .mobile-frame {
             max-width: 300px;
             margin: 30px auto;
             aspect-ratio: 9 / 16;
-            border: 10px solid #1a1a1a;
-            border-radius: 35px;
+            border: 8px solid #222;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(37, 211, 102, 0.2);
-            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        .mobile-frame iframe {
-            width: 100%;
-            height: 100%;
-        }
+        .mobile-frame iframe { width: 100%; height: 100%; }
 
-        .desktop-only-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+        @media (max-width: 768px) {
+            .double-top-bar { flex-direction: column; }
+            .bar-half { font-size: 11px; padding: 10px; }
         }
-
-        .navbar { position: relative; }
     </style>
 </head>
 
 <body>
 
-    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas." class="whatsapp-top-bar" target="_blank">
-        <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
-        FALE COM O SUPORTE AGORA NO WHATSAPP!
-    </a>
+    <div class="double-top-bar">
+        <a href="https://wa.me/5573981021934?text=Olá! Tenho dúvidas sobre o NewsMaker." class="bar-half bar-support" target="_blank">
+            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
+            SUPORTE WHATSAPP
+        </a>
+        <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="bar-half bar-gift" target="_blank">
+            🎁 GANHE UM GRAVADOR DE MOVIMENTOS GRÁTIS!
+        </a>
+    </div>
 
-    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas." class="whatsapp-float-premium" target="_blank">
+    <a href="https://wa.me/5573981021934?text=Olá! Tenho dúvidas sobre o NewsMaker." class="whatsapp-float-premium" target="_blank">
         <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
         <span>Suporte 24 horas</span>
     </a>
@@ -109,7 +150,7 @@
             <div class="logo">NEWS<span>MAKER</span></div>
             <div class="nav-links">
                 <a href="#como-funciona">Como Funciona</a>
-                <a href="#demo-viral">Resultado Real</a>
+                <a href="#demo-viral">Exemplo Real</a>
                 <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar Agora</a>
             </div>
         </div>
@@ -118,18 +159,14 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge">🔥 Tecnologia IA de Ponta</span>
-                <h1>Transforme qualquer link em <span class="text-gradient">vídeos prontos</span></h1>
-                <p>O NewsMaker automatiza todo o processo: do roteiro à narração. Ganhe tempo e escala.</p>
+                <span class="badge">🔥 Automação de Vídeos IA</span>
+                <h1>Crie vídeos virais de notícias com <span class="text-gradient">um clique</span></h1>
+                <p>O software que transforma links em conteúdo pronto para YouTube e TikTok. Economize horas de edição.</p>
                 <div class="hero-cta">
                     <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Quero Acesso Imediato</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="desktop-only-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-                    Uso em Computador (Windows)
-                </div>
                 <div class="video-frame">
                     <iframe src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -137,25 +174,28 @@
         </div>
     </header>
 
-    <section id="como-funciona" class="features">
+    <section id="demo-viral" class="demo-section" style="text-align: center; padding: 60px 0; background: #000;">
         <div class="container">
-            <h2 class="section-title">Como o NewsMaker escala seu canal</h2>
-            <div class="features-grid">
-                <div class="feature-card"><h3>Cole o Link</h3><p>Insira a URL de uma notícia ou artigo.</p></div>
-                <div class="feature-card"><h3>IA Processa</h3><p>Roteiro e narração humana prontos em segundos.</p></div>
-                <div class="feature-card"><h3>Vídeo Pronto</h3><p>Imagens e legendas automáticas.</p></div>
+            <h2 class="section-title">O que a IA produz por você:</h2>
+            <div class="mobile-frame">
+                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=0&rel=0" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <section id="demo-viral" class="demo-section">
+    <section class="gift-section">
         <div class="container">
-            <h2 class="section-title">Veja o resultado final</h2>
-            <p style="color: #ccc; margin-bottom: 20px;">Este é o tipo de vídeo que o NewsMaker cria para você postar:</p>
-            <div class="mobile-frame">
-                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=0&mute=0&rel=0" frameborder="0" allowfullscreen></iframe>
+            <div class="gift-box">
+                <h2 style="color: #fff; margin-bottom: 10px;">🎁 BRINDE EXCLUSIVO</h2>
+                <p style="color: #ccc; line-height: 1.6;">
+                    Entre para nossa comunidade e receba <strong>DE GRAÇA</strong> o nosso <br>
+                    <span style="color: #d4af37; font-weight: 800; font-size: 20px;">GRAVADOR DE MOVIMENTOS AUTOMÁTICO</span>
+                </p>
+                <p style="color: #888; font-size: 14px; margin-top: 10px;">Link para download fixado no topo do canal!</p>
+                <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="btn-canal" target="_blank">
+                    ENTRAR NA COMUNIDADE E PEGAR BRINDE
+                </a>
             </div>
-            <p style="color: #25D366; font-weight: bold; margin-top: 15px;">↑ IMAGENS REAIS DO APLICATIVO NEWSMAKER FUNCIONANDO</p>
         </div>
     </section>
 
@@ -174,7 +214,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 NewsMaker - Itabuna, BA.</p>
+            <p>&copy; 2026 NewsMaker - Inteligência Artificial para Criadores.</p>
         </div>
     </footer>
 
