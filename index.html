@@ -95,7 +95,7 @@
             padding-top: 56.25%;
         }
         
-        .video-main iframe, .mobile-frame iframe {
+        .video-main iframe, .video-shorts-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -104,16 +104,16 @@
             border: none;
         }
 
-        .mobile-frame {
-            max-width: 280px;
+        /* NOVA AREA DO SHORTS SEM MOLDURA */
+        .video-shorts-container {
+            max-width: 350px;
             margin: 0 auto;
             aspect-ratio: 9 / 16;
-            border: 8px solid #222;
-            border-radius: 35px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             position: relative;
             background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         /* SEÇÃO CUPOM */
@@ -189,8 +189,8 @@
 
     <section id="demo-viral" style="padding: 40px 0; background: #000; text-align: center;">
         <div class="container">
-            <div class="mobile-frame">
-                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_6NcA4W8&controls=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="video-shorts-container">
+                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_6NcA4W8&controls=1&autohide=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </section>
