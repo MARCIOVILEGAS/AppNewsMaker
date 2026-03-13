@@ -74,6 +74,17 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        /* BOTÃO NAV MAIOR */
+        .btn-nav-large {
+            background: #25D366;
+            color: white !important;
+            padding: 12px 25px !important;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
         /* VIDEO FRAMES LIMPOS */
         .video-main { 
             position: relative;
@@ -81,7 +92,7 @@
             overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             background: #000;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 56.25%;
         }
         
         .video-main iframe, .mobile-frame iframe {
@@ -91,12 +102,11 @@
             width: 100%;
             height: 100%;
             border: none;
-            pointer-events: auto;
         }
 
         .mobile-frame {
             max-width: 280px;
-            margin: 30px auto;
+            margin: 0 auto;
             aspect-ratio: 9 / 16;
             border: 8px solid #222;
             border-radius: 35px;
@@ -139,11 +149,11 @@
 <body>
 
     <div class="double-top-bar">
-        <a href="https://wa.me/5573981021934?text=Olá! Tenho dúvidas sobre o NewsMaker." class="bar-half bar-support" target="_blank">
+        <a href="https://wa.me/5573981021934?text=Olá! Quero mais informações sobre o NewsMaker." class="bar-half bar-support" target="_blank">
             SUPORTE WHATSAPP
         </a>
         <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="bar-half bar-gift" target="_blank">
-            <b>CLIQUE AQUI</b> 15% OFF EXPIRA EM: <span class="timer-display countdown-timer">00:00:00:00</span>
+            <b>CLIQUE AQUI</b> 15% DESCONTO EXPIRA EM: <span class="timer-display countdown-timer">00:00:00:00</span>
         </a>
     </div>
 
@@ -156,8 +166,7 @@
         <div class="container nav-flex">
             <div class="logo">NEWS<span>MAKER</span></div>
             <div class="nav-links">
-                <a href="#demo-viral">Exemplo</a>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar Agora</a>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav-large">Quero Acessar</a>
             </div>
         </div>
     </nav>
@@ -165,10 +174,10 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge">🚀 Automação com IA</span>
-                <h1>Vídeos de notícias virais com <span class="text-gradient">1 clique</span></h1>
-                <p>O software que transforma links em conteúdo pronto para YouTube e TikTok. Economize horas de edição.</p>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Acesso Imediato</a>
+                <span class="badge">🚀 O único aplicativo com IA especializado na criação de notícias.</span>
+                <h1>Uma máquina de criar vídeos com <span class="text-gradient">1 clique</span></h1>
+                <p>O software que transforma qualquer link em um vídeo pronto. Economize horas de edição.</p>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Liberar Acesso</a>
             </div>
             <div class="hero-visual">
                 <div class="video-main">
@@ -178,11 +187,10 @@
         </div>
     </header>
 
-    <section id="demo-viral" style="padding: 60px 0; background: #000; text-align: center;">
+    <section id="demo-viral" style="padding: 40px 0; background: #000; text-align: center;">
         <div class="container">
-            <h2 class="section-title">O que a IA produz por você:</h2>
             <div class="mobile-frame">
-                <iframe src="https://www.youtube.com/embed/-a0_0NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_0NcA4W8&controls=0&modestbranding=1&rel=0" allow="autoplay"></iframe>
+                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_6NcA4W8&controls=0&modestbranding=1&rel=0" allow="autoplay"></iframe>
             </div>
         </div>
     </section>
@@ -190,7 +198,7 @@
     <section class="container">
         <div class="coupon-box">
             <h2 style="color: #fff;">🔥 ÚLTIMA CHANCE: 15% DE DESCONTO</h2>
-            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">Entre no canal, pegue seu cupom e receba estratégias secretas!</p>
+            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">Entre no canal ZAP, pegue seu cupom e receba estratégias secretas!</p>
             
             <div style="margin: 20px 0;">
                 <p style="color: #ff0000; font-weight: bold; margin-bottom: 10px;">A OFERTA ACABA EM:</p>
@@ -213,17 +221,14 @@
             const targetDate = new Date("March 16, 2026 23:59:59").getTime();
             const now = new Date().getTime();
             const difference = targetDate - now;
-
             if (difference <= 0) {
                 document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = "EXPIRADO");
                 return;
             }
-
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
             const display = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = display);
         }
