@@ -44,31 +44,9 @@
             transition: 0.3s;
         }
 
-        .bar-support { 
-            background: linear-gradient(90deg, #075E54 0%, #128c7e 100%); 
-            border-right: 1px solid rgba(255,255,255,0.1); 
-        }
+        .bar-support { background: linear-gradient(90deg, #075E54 0%, #128c7e 100%); border-right: 1px solid rgba(255,255,255,0.1); }
+        .bar-gift { background: linear-gradient(90deg, #ff0000 0%, #8b0000 100%); }
 
-        .bar-gift { 
-            background: linear-gradient(90deg, #ff0000 0%, #8b0000 100%); 
-        }
-
-        .bar-gift b {
-            background: #fff;
-            color: #ff0000;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 10px;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* --- CONTADOR --- */
         .timer-display {
             background: rgba(0,0,0,0.5);
             padding: 3px 8px;
@@ -76,7 +54,6 @@
             font-family: monospace;
             font-size: 14px;
             color: #ffff00;
-            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* SUPORTE FLUTUANTE */
@@ -97,7 +74,26 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        /* VIDEO FRAMES */
+        /* VIDEO FRAMES LIMPOS */
+        .video-main { 
+            position: relative;
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        .video-main iframe, .mobile-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: auto;
+        }
+
         .mobile-frame {
             max-width: 280px;
             margin: 30px auto;
@@ -106,10 +102,9 @@
             border-radius: 35px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            position: relative;
             background: #000;
         }
-
-        .mobile-frame iframe { width: 100%; height: 100%; border: none; }
 
         /* SEÇÃO CUPOM */
         .coupon-box {
@@ -120,7 +115,6 @@
             text-align: center;
             max-width: 800px;
             margin: 40px auto;
-            position: relative;
         }
 
         .btn-comunidade {
@@ -133,14 +127,11 @@
             display: inline-block;
             margin-top: 20px;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
         }
-
-        .btn-comunidade:hover { transform: scale(1.05); }
 
         @media (max-width: 768px) {
             .double-top-bar { flex-direction: column; }
-            .bar-half { font-size: 11px; padding: 10px; }
+            .bar-half { font-size: 11px; }
         }
     </style>
 </head>
@@ -149,7 +140,6 @@
 
     <div class="double-top-bar">
         <a href="https://wa.me/5573981021934?text=Olá! Tenho dúvidas sobre o NewsMaker." class="bar-half bar-support" target="_blank">
-            <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
             SUPORTE WHATSAPP
         </a>
         <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="bar-half bar-gift" target="_blank">
@@ -166,8 +156,8 @@
         <div class="container nav-flex">
             <div class="logo">NEWS<span>MAKER</span></div>
             <div class="nav-links">
-                <a href="#demo-viral">Exemplo IA</a>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar</a>
+                <a href="#demo-viral">Exemplo</a>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar Agora</a>
             </div>
         </div>
     </nav>
@@ -175,14 +165,14 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge">🚀 Oferta por Tempo Limitado</span>
+                <span class="badge">🚀 Automação com IA</span>
                 <h1>Vídeos de notícias virais com <span class="text-gradient">1 clique</span></h1>
-                <p>O software que automatiza canais dark de notícias do início ao fim. Produza 10x mais rápido.</p>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Quero Acesso Imediato</a>
+                <p>O software que transforma links em conteúdo pronto para YouTube e TikTok. Economize horas de edição.</p>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Acesso Imediato</a>
             </div>
             <div class="hero-visual">
-                <div class="video-main" style="border-radius:15px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&rel=0" frameborder="0" allowfullscreen></iframe>
+                <div class="video-main">
+                    <iframe src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&loop=1&playlist=MwDBVnJxAxc&controls=0&modestbranding=1&rel=0" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
@@ -190,59 +180,42 @@
 
     <section id="demo-viral" style="padding: 60px 0; background: #000; text-align: center;">
         <div class="container">
-            <h2 class="section-title">O que a IA cria para você:</h2>
+            <h2 class="section-title">O que a IA produz por você:</h2>
             <div class="mobile-frame">
-                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-a0_0NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_0NcA4W8&controls=0&modestbranding=1&rel=0" allow="autoplay"></iframe>
             </div>
         </div>
     </section>
 
     <section class="container">
         <div class="coupon-box">
-            <h2 style="color: #fff; font-size: 28px;">🔥 ÚLTIMA CHANCE: 15% DE DESCONTO</h2>
-            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">
-                Entre no canal oficial, pegue seu código de desconto e receba estratégias diárias para crescer no YouTube e TikTok!
-            </p>
+            <h2 style="color: #fff;">🔥 ÚLTIMA CHANCE: 15% DE DESCONTO</h2>
+            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">Entre no canal, pegue seu cupom e receba estratégias secretas!</p>
             
-            <div style="margin: 30px 0;">
-                <p style="color: #ff0000; font-weight: 800; margin-bottom: 10px; letter-spacing: 1px;">A OFERTA ACABA EM:</p>
-                <span class="countdown-timer" style="font-size: 32px; font-weight: 900; color: #fff; background: #222; padding: 15px 25px; border-radius: 10px; border: 2px solid #ff0000; display: inline-block;">00:00:00:00</span>
+            <div style="margin: 20px 0;">
+                <p style="color: #ff0000; font-weight: bold; margin-bottom: 10px;">A OFERTA ACABA EM:</p>
+                <span class="countdown-timer" style="font-size: 30px; font-weight: 800; color: #fff; background: #222; padding: 10px 20px; border-radius: 10px; border: 1px solid #ff0000;">00:00:00:00</span>
             </div>
 
             <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="btn-comunidade" target="_blank">
-                ENTRAR NO CANAL E PEGAR MEU CUPOM
+                ENTRAR NO CANAL E PEGAR CUPOM
             </a>
-            <p style="color: #666; font-size: 13px; margin-top: 15px;">Promoção válida até as 23:59 do dia 16/03/2026.</p>
+            <p style="color: #666; font-size: 12px; margin-top: 15px;">Válido apenas até 16/03/2026.</p>
         </div>
     </section>
 
-    <section id="comprar" class="final-cta">
-        <div class="container">
-            <div class="cta-wrapper">
-                <div class="price-box">
-                    <span class="current-price">R$ 159,00 à vista</span>
-                </div>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary lg">QUERO O NEWSMAKER AGORA</a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="padding: 40px 0; text-align: center; color: #444; font-size: 14px;">
-        <p>&copy; 2026 NewsMaker - Inteligência Artificial para Criadores.</p>
+    <footer style="padding: 40px 0; text-align: center; color: #555;">
+        <p>&copy; 2026 NewsMaker - Itabuna, BA.</p>
     </footer>
 
     <script>
         function updateTimer() {
-            // DATA FINAL: 16 de Março de 2026 às 23:59:59
             const targetDate = new Date("March 16, 2026 23:59:59").getTime();
             const now = new Date().getTime();
             const difference = targetDate - now;
 
             if (difference <= 0) {
-                document.querySelectorAll(".countdown-timer").forEach(el => {
-                    el.innerHTML = "OFERTA ENCERRADA";
-                    el.style.color = "#888";
-                });
+                document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = "EXPIRADO");
                 return;
             }
 
@@ -251,20 +224,11 @@
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            // Formatação com zero à esquerda
-            const d = days > 0 ? days + "d " : "";
-            const h = hours < 10 ? "0" + hours : hours;
-            const m = minutes < 10 ? "0" + minutes : minutes;
-            const s = seconds < 10 ? "0" + seconds : seconds;
-
-            const display = `${d}${h}:${m}:${s}`;
+            const display = `${days}d ${hours}h ${minutes}m ${seconds}s`;
             document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = display);
         }
-
-        // Atualiza a cada 1 segundo
         setInterval(updateTimer, 1000);
         updateTimer();
     </script>
-
 </body>
 </html>
