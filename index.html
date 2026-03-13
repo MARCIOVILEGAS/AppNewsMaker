@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsMaker - Transforme Links em Vídeos Virais</title>
+    <title>NewsMaker - Vídeos Virais com IA</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +19,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        /* --- ESTILOS DO SUPORTE WHATSAPP --- */
-        
-        /* Barra de Topo */
+        /* --- AJUSTES DE SUPORTE WHATSAPP --- */
         .whatsapp-top-bar {
             background: linear-gradient(90deg, #25D366 0%, #128c7e 100%);
             color: white !important;
@@ -34,12 +32,10 @@
             align-items: center;
             gap: 8px;
             font-size: 0.85rem;
-            position: relative;
             z-index: 1001;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
         }
 
-        /* Botão Flutuante "Suporte 24 horas" */
         .whatsapp-float-premium {
             position: fixed;
             bottom: 25px;
@@ -52,62 +48,66 @@
             align-items: center;
             gap: 12px;
             text-decoration: none !important;
-            font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 15px;
             z-index: 9999;
-            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.3); /* Efeito de textura/profundidade */
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .whatsapp-float-premium:hover { transform: scale(1.05) translateY(-5px); }
+
+        /* --- AJUSTE PARA VÍDEO VERTICAL (SHORTS) --- */
+        .hero {
+            padding: 60px 0;
+            text-align: center; /* Centraliza o conteúdo no topo */
         }
 
-        .whatsapp-float-premium:hover {
-            transform: scale(1.05) translateY(-5px);
-            background: #1ebd59;
-            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.4);
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
         }
 
-        .whatsapp-float-premium span {
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Textura no texto */
+        .video-container-vertical {
+            max-width: 340px; /* Largura ideal para simular um celular */
+            margin: 0 auto;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            border-radius: 30px;
+            border: 8px solid #1a1a1a; /* Moldura de "celular" */
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Estilos originais e ajustes de layout */
+        .video-container-vertical iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .desktop-only-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
         }
-        .desktop-only-badge svg { fill: #00f2fe; }
-        .navbar { position: relative; top: 0; }
 
-        @media (max-width: 768px) {
-            .whatsapp-float-premium {
-                padding: 10px 18px;
-                font-size: 13px;
-                bottom: 15px;
-                right: 15px;
-            }
-        }
+        /* Navbar fixa ou relativa */
+        .navbar { position: relative; }
     </style>
 </head>
 
 <body>
 
-    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas sobre o NewsMaker. Pode me ajudar?" class="whatsapp-top-bar" target="_blank">
-        <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97zM17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.275-.1-.476-.15-.676.15-.2.3-.775.978-.951 1.177-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.797-1.496-1.782-1.672-2.082-.175-.3-.019-.462.13-.61.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.631-.926-2.235-.244-.593-.491-.513-.676-.522-.175-.008-.375-.01-.575-.01-.2 0-.525.075-.8 0-.376-.275-.826-.826-1.101-1.176-.325-.405-.625-.5-.85-.502-.225-.002-.451-.002-.676-.002-.2 0-.525.075-.8.375s-1.05 1.025-1.05 2.5c0 1.475 1.075 2.9 1.225 3.1.15.2 2.112 3.226 5.117 4.526.715.309 1.274.494 1.708.633.718.228 1.37.195 1.886.118.574-.085 1.78-.727 2.03-1.429.25-.701.25-1.301.175-1.429-.075-.125-.275-.2-.575-.35z"/></svg>
-        AINDA TEM DÚVIDAS? FALE COM O SUPORTE AGORA NO WHATSAPP!
+    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas sobre o NewsMaker." class="whatsapp-top-bar" target="_blank">
+        <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
+        DÚVIDAS? FALE COM NOSSO SUPORTE AGORA!
     </a>
 
-    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas sobre o NewsMaker. Pode me ajudar?" class="whatsapp-float-premium" target="_blank">
-        <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97zM17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.275-.1-.476-.15-.676.15-.2.3-.775.978-.951 1.177-.175.2-.35.225-.651.075-.301-.15-1.27-.467-2.42-1.493-.894-.797-1.496-1.782-1.672-2.082-.175-.3-.019-.462.13-.61.135-.133.301-.35.451-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.676-1.631-.926-2.235-.244-.593-.491-.513-.676-.522-.175-.008-.375-.01-.575-.01-.2 0-.525.075-.8 0-.376-.275-.826-.826-1.101-1.176-.325-.405-.625-.5-.85-.502-.225-.002-.451-.002-.676-.002-.2 0-.525.075-.8.375s-1.05 1.025-1.05 2.5c0 1.475 1.075 2.9 1.225 3.1.15.2 2.112 3.226 5.117 4.526.715.309 1.274.494 1.708.633.718.228 1.37.195 1.886.118.574-.085 1.78-.727 2.03-1.429.25-.701.25-1.301.175-1.429-.075-.125-.275-.2-.575-.35z"/></svg>
+    <a href="https://wa.me/5573981021934?text=Olá! Vim do site e tenho dúvidas sobre o NewsMaker." class="whatsapp-float-premium" target="_blank">
+        <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
         <span>Suporte 24 horas</span>
     </a>
 
@@ -116,96 +116,39 @@
             <div class="logo">NEWS<span>MAKER</span></div>
             <div class="nav-links">
                 <a href="#como-funciona">Como Funciona</a>
-                <a href="#depoimentos">Depoimentos</a>
                 <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar Agora</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="container hero-grid">
+        <div class="container">
             <div class="hero-content">
                 <span class="badge">🔥 Tecnologia IA de Ponta</span>
-                <h1>Transforme qualquer link em <span class="text-gradient">vídeos prontos</span> para redes sociais</h1>
-                <p>O NewsMaker automatiza todo o processo: do roteiro à narração. Perfeito para YouTube, TikTok, Reels e Shorts.</p>
+                <h1>Transforme links em <span class="text-gradient">vídeos virais</span></h1>
+                <p>O NewsMaker automatiza tudo: roteiro, narração e edição. Perfeito para Shorts, TikTok e Reels.</p>
+                
+                <div class="desktop-only-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                    Uso exclusivo em Computador (Windows)
+                </div>
+
                 <div class="hero-cta">
                     <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Quero Acesso Imediato</a>
-                    <span class="price-info">Acesso imediato por apenas <strong>R$ 159,00</strong></span>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="desktop-only-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-                    Disponível exclusivamente para Computador (Windows)
-                </div>
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&loop=1&playlist=MwDBVnJxAxc&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+
+            <div class="video-container-vertical">
+                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_6NcA4W8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </header>
 
     <section class="trust-bar">
         <div class="container">
-            <p>COMPATÍVEL COM AS PRINCIPAIS PLATAFORMAS</p>
+            <p>DOMINE O ALGORITMO</p>
             <div class="platforms">
-                <span>YouTube</span><span>TikTok</span><span>Instagram</span><span>Kwai</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="como-funciona" class="features">
-        <div class="container">
-            <h2 class="section-title">Como o NewsMaker escala seu canal</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon">🔗</div>
-                    <h3>Cole o Link</h3>
-                    <p>Insira a URL de uma notícia ou artigo de blog. A IA lê e interpreta o conteúdo instantaneamente.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🎙️</div>
-                    <h3>Voz e Roteiro</h3>
-                    <p>Criamos um roteiro persuasivo e geramos uma narração com voz humana profissional.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🎬</div>
-                    <h3>Vídeo Pronto</h3>
-                    <p>O sistema monta as imagens e legendas. Você só precisa baixar e postar no seu canal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ideal-for">
-        <div class="container flex-ideal">
-            <div class="ideal-text">
-                <h2>Feito para quem busca escala e automação</h2>
-                <ul class="check-list">
-                    <li><strong>Criadores de Conteúdo:</strong> Poste vídeos diários sem gravar uma única cena.</li>
-                    <li><strong>Agências de Marketing:</strong> Entregue volume de conteúdo para seus clientes.</li>
-                    <li><strong>Vendedores Online:</strong> Transforme reviews de produtos em anúncios em vídeo.</li>
-                    <li><strong>Canais Dark:</strong> Lucre com o YouTube sem precisar aparecer.</li>
-                </ul>
-            </div>
-            <div class="ideal-image">
-                <img src="assets/images/interface-1.jpg" alt="Interface do NewsMaker" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); display: block;">
-            </div>
-        </div>
-    </section>
-
-    <section id="depoimentos" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">O que dizem nossos usuários</h2>
-            <div class="testimonials-grid">
-                <div class="t-card">
-                    <p>"Antes eu levava 5 horas para editar um vídeo de notícias. Com o NewsMaker, faço 15 vídeos em menos de 1 hora."</p>
-                    <div class="user"><strong>— Ricardo Silva</strong><span>YouTuber</span></div>
-                </div>
-                <div class="t-card">
-                    <p>"A qualidade da narração é impressionante. Meus seguidores nem percebem que é Inteligência Artificial."</p>
-                    <div class="user"><strong>— Amanda Costa</strong><span>Social Media</span></div>
-                </div>
+                <span>YouTube Shorts</span><span>TikTok</span><span>Instagram Reels</span>
             </div>
         </div>
     </section>
@@ -214,21 +157,18 @@
         <div class="container">
             <div class="cta-wrapper">
                 <h2>Garanta sua Licença Anual</h2>
-                <h3 style="color: #fff; margin-bottom: 20px;">Comece a dominar as redes sociais hoje!</h3>
                 <div class="price-box">
                     <span class="old-price">R$ 997,00</span>
-                    <span class="current-price">12x R$ 16,44</span>
-                    <small>ou R$ 159,00 à vista</small>
+                    <span class="current-price">R$ 159,00 à vista</span>
                 </div>
                 <a href="https://pay.hotmart.com/V104661379I" class="btn-primary lg">QUERO O NEWSMAKER AGORA</a>
-                <p class="footer-note">✅ Entrega imediata via e-mail • Pagamento Seguro</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 NewsMaker - Inteligência Artificial para Conteúdo. Todos os direitos reservados.</p>
+            <p>&copy; 2026 NewsMaker - Inteligência Artificial para Conteúdo.</p>
         </div>
     </footer>
 
