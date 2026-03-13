@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsMaker - Transforme Links em Vídeos Virais</title>
+    <title>NewsMaker - Inteligência Artificial para Vídeos</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,46 +19,60 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        /* --- BARRA DUPLA NO TOPO --- */
+        /* --- BARRA DUPLA ESTRATÉGICA NO TOPO --- */
         .double-top-bar {
             display: flex;
             width: 100%;
             font-family: 'Inter', sans-serif;
-            font-size: 13px;
             font-weight: 800;
-            text-align: center;
-            position: relative;
-            z-index: 1001;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .bar-half {
             flex: 1;
-            padding: 12px 5px;
+            padding: 14px 10px;
             text-decoration: none !important;
             color: white !important;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 13px;
             transition: 0.3s;
+            letter-spacing: -0.5px;
         }
 
-        /* Lado Suporte: Verde */
+        /* Lado Suporte */
         .bar-support {
-            background: linear-gradient(90deg, #128c7e 0%, #25D366 100%);
+            background: linear-gradient(90deg, #075E54 0%, #128c7e 100%);
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Lado Brinde: Degradê Verde para Dourado/Destaque */
+        /* Lado Cupom/Comunidade */
         .bar-gift {
-            background: linear-gradient(90deg, #25D366 0%, #d4af37 100%);
+            background: linear-gradient(90deg, #25D366 0%, #1a73e8 100%);
         }
 
-        .bar-half:hover {
-            filter: brightness(1.1);
+        .bar-gift b {
+            background: #ff0000;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite;
         }
 
-        /* BOTÃO FLUTUANTE */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* SUPORTE FLUTUANTE */
         .whatsapp-float-premium {
             position: fixed;
             bottom: 25px;
@@ -72,58 +86,49 @@
             gap: 12px;
             text-decoration: none !important;
             font-weight: 700;
-            z-index: 9999;
-            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.3);
-            transition: 0.3s;
+            z-index: 9998;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        /* SEÇÃO DE BRINDE (CANAL) */
-        .gift-section {
-            background: #111;
-            padding: 60px 0;
-        }
-
-        .gift-box {
-            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
-            border: 2px dashed #d4af37;
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .btn-canal {
-            background: #d4af37;
-            color: #000 !important;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none !important;
-            font-weight: 900;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-            transition: 0.3s;
-        }
-
-        .btn-canal:hover { transform: scale(1.05); background: #f1c40f; }
-
-        /* VÍDEO VERTICAL FRAME */
+        /* VIDEO FRAMES */
+        .video-main { margin-top: 20px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
         .mobile-frame {
             max-width: 300px;
-            margin: 30px auto;
+            margin: 40px auto;
             aspect-ratio: 9 / 16;
             border: 8px solid #222;
-            border-radius: 30px;
+            border-radius: 35px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        .mobile-frame iframe { width: 100%; height: 100%; }
+        /* SEÇÃO COMUNIDADE / CUPOM */
+        .coupon-box {
+            background: #111;
+            border: 2px dashed #25D366;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .btn-comunidade {
+            background: #25D366;
+            color: #fff !important;
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none !important;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
 
         @media (max-width: 768px) {
             .double-top-bar { flex-direction: column; }
-            .bar-half { font-size: 11px; padding: 10px; }
+            .bar-half { font-size: 12px; padding: 12px; }
         }
     </style>
 </head>
@@ -136,22 +141,22 @@
             SUPORTE WHATSAPP
         </a>
         <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="bar-half bar-gift" target="_blank">
-            🎁 GANHE UM GRAVADOR DE MOVIMENTOS GRÁTIS!
+            <b>CLIQUE AQUI</b> GANHE 15% DE DESCONTO AGORA!
         </a>
     </div>
 
     <a href="https://wa.me/5573981021934?text=Olá! Tenho dúvidas sobre o NewsMaker." class="whatsapp-float-premium" target="_blank">
         <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.076 1.38 4.7 1.382 5.335 0 9.676-4.342 9.678-9.678 0-2.586-1.007-5.015-2.835-6.845-1.828-1.83-4.257-2.835-6.843-2.835-5.334 0-9.676 4.343-9.678 9.68-.001 1.77.47 3.493 1.362 5.01l-.986 3.605 3.698-.97z"/></svg>
-        <span>Suporte 24 horas</span>
+        <span>Suporte 24h</span>
     </a>
 
     <nav class="navbar">
         <div class="container nav-flex">
             <div class="logo">NEWS<span>MAKER</span></div>
             <div class="nav-links">
-                <a href="#como-funciona">Como Funciona</a>
-                <a href="#demo-viral">Exemplo Real</a>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar Agora</a>
+                <a href="#como-funciona">Funciona</a>
+                <a href="#demo-viral">Exemplo</a>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-nav">Começar</a>
             </div>
         </div>
     </nav>
@@ -159,63 +164,60 @@
     <header class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <span class="badge">🔥 Automação de Vídeos IA</span>
-                <h1>Crie vídeos virais de notícias com <span class="text-gradient">um clique</span></h1>
-                <p>O software que transforma links em conteúdo pronto para YouTube e TikTok. Economize horas de edição.</p>
-                <div class="hero-cta">
-                    <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Quero Acesso Imediato</a>
-                </div>
+                <span class="badge">🚀 Automação com IA</span>
+                <h1>Vídeos de notícias virais com <span class="text-gradient">1 clique</span></h1>
+                <p>O primeiro software que automatiza canais dark de notícias do início ao fim.</p>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary">Acesso Imediato</a>
             </div>
             <div class="hero-visual">
-                <div class="video-frame">
-                    <iframe src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&rel=0" frameborder="0" allowfullscreen></iframe>
+                <div class="video-main">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/MwDBVnJxAxc?autoplay=1&mute=1&rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="demo-viral" class="demo-section" style="text-align: center; padding: 60px 0; background: #000;">
+    <section id="demo-viral" style="padding: 60px 0; background: #000; text-align: center;">
         <div class="container">
             <h2 class="section-title">O que a IA produz por você:</h2>
             <div class="mobile-frame">
-                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=0&rel=0" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?rel=0" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <section class="gift-section">
-        <div class="container">
-            <div class="gift-box">
-                <h2 style="color: #fff; margin-bottom: 10px;">🎁 BRINDE EXCLUSIVO</h2>
-                <p style="color: #ccc; line-height: 1.6;">
-                    Entre para nossa comunidade e receba <strong>DE GRAÇA</strong> o nosso <br>
-                    <span style="color: #d4af37; font-weight: 800; font-size: 20px;">GRAVADOR DE MOVIMENTOS AUTOMÁTICO</span>
-                </p>
-                <p style="color: #888; font-size: 14px; margin-top: 10px;">Link para download fixado no topo do canal!</p>
-                <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="btn-canal" target="_blank">
-                    ENTRAR NA COMUNIDADE E PEGAR BRINDE
-                </a>
-            </div>
+    <section class="container">
+        <div class="coupon-box">
+            <h2 style="color: #fff; text-transform: uppercase;">🎁 DESCONTO EXCLUSIVO + DICAS</h2>
+            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">
+                Quer pagar menos? Entre em nossa comunidade no WhatsApp e pegue seu <br>
+                <span style="color: #25D366; font-weight: 800; font-size: 24px;">CUPOM DE 15% DE DESCONTO</span>
+            </p>
+            <p style="color: #aaa; font-size: 15px;">
+                Ao entrar, você também recebe atualizações diárias e estratégias <br> secretas para crescer suas redes sociais com o NewsMaker.
+            </p>
+            <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="btn-comunidade" target="_blank">
+                ENTRAR NA COMUNIDADE E PEGAR MEU CUPOM
+            </a>
+            <p style="color: #666; font-size: 12px; margin-top: 15px;">O código do cupom está fixado no topo do canal.</p>
         </div>
     </section>
 
     <section id="comprar" class="final-cta">
         <div class="container">
             <div class="cta-wrapper">
-                <h2>Garanta sua Licença Anual</h2>
+                <h2 style="margin-bottom: 20px;">Comece sua escala hoje!</h2>
                 <div class="price-box">
                     <span class="old-price">R$ 997,00</span>
                     <span class="current-price">R$ 159,00 à vista</span>
                 </div>
-                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary lg">QUERO O NEWSMAKER AGORA</a>
+                <a href="https://pay.hotmart.com/V104661379I" class="btn-primary lg">QUERO O NEWSMAKER</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 NewsMaker - Inteligência Artificial para Criadores.</p>
-        </div>
+    <footer style="padding: 40px 0; text-align: center; color: #555;">
+        <p>&copy; 2026 NewsMaker - Itabuna, BA.</p>
     </footer>
 
 </body>
