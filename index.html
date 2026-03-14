@@ -250,6 +250,13 @@
         }
         setInterval(updateTimer, 1000);
         updateTimer();
+
+        // RASTREAMENTO AUTOMÁTICO DE CHECKOUT (HOTMART)
+        document.querySelectorAll('a[href*="hotmart.com"]').forEach(function(botao) {
+            botao.addEventListener('click', function() {
+                fbq('track', 'InitiateCheckout');
+            });
+        });
     </script>
 </body>
 </html>
