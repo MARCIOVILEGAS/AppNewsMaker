@@ -123,8 +123,60 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+        /* --- SEÇÃO DE DEPOIMENTOS --- */
+        .testimonials-section {
+            padding: 60px 20px;
+            background: #050505;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 40px auto 0;
+        }
+
+        .testimonial-card {
+            background: #111;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: #25D366;
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            color: #ccc;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .testimonial-author {
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .testimonial-author span {
+            color: #25D366;
+            display: block;
+            font-weight: 400;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
         @media (max-width: 768px) {
             .bar-half { font-size: 12px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -171,6 +223,30 @@
         <div class="container">
             <div class="video-shorts-container">
                 <iframe src="https://www.youtube.com/embed/-a0_6NcA4W8?autoplay=1&mute=1&loop=1&playlist=-a0_6NcA4W8&controls=1&autohide=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 style="color: #fff; font-size: 2rem;">O que dizem nossos <span style="color: #25D366;">Membros</span></h2>
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Amei a ideia! Agora me sobra tempo para me concentrar nas minhas coisas e na minha família enquanto meu computador produz vídeos para os meus canais."</p>
+                    <p class="testimonial-author">André Ferreira <span>São Paulo, SP</span></p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Essa ferramenta vale muito mais do que eu paguei. Só o que ela me dá de retorno com vendas de infoprodutos e a monetização do canal já valeu a pena!"</p>
+                    <p class="testimonial-author">Isabela Silva <span>Santa Catarina</span></p>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Sempre assisti notícias e prefiro ver notícias reais do que vídeos fantasiosos. Amei a ideia e já vou fazer isso com notícias de esporte!"</p>
+                    <p class="testimonial-author">Maria do Carmo <span>Belo Horizonte, MG</span></p>
+                </div>
+
             </div>
         </div>
     </section>
