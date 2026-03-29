@@ -27,7 +27,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewsMaker - Oferta Exclusiva Comunidade</title>
+    <title>NewsMaker - Site Oficial</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        /* --- BARRA DUPLA NO TOPO --- */
+        /* --- BARRA NO TOPO --- */
         .double-top-bar {
             display: flex;
             width: 100%;
@@ -56,20 +56,12 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
+            font-size: 14px;
             transition: 0.3s;
         }
 
-        .bar-support { background: linear-gradient(90deg, #075E54 0%, #128c7e 100%); border-right: 1px solid rgba(255,255,255,0.1); }
-        .bar-gift { background: linear-gradient(90deg, #ff0000 0%, #8b0000 100%); }
-
-        .timer-display {
-            background: rgba(0,0,0,0.5);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 14px;
-            color: #ffff00;
+        .bar-support { 
+            background: linear-gradient(90deg, #075E54 0%, #128c7e 100%); 
         }
 
         /* SUPORTE FLUTUANTE */
@@ -120,7 +112,6 @@
             border: none;
         }
 
-        /* NOVA AREA DO SHORTS SEM MOLDURA */
         .video-shorts-container {
             max-width: 350px;
             margin: 0 auto;
@@ -132,32 +123,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* SEÇÃO CUPOM */
-        .coupon-box {
-            background: #0a0a0a;
-            border: 2px dashed #ff0000;
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: 40px auto;
-        }
-
-        .btn-comunidade {
-            background: #25D366;
-            color: #fff !important;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none !important;
-            font-weight: 800;
-            display: inline-block;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-        }
-
         @media (max-width: 768px) {
-            .double-top-bar { flex-direction: column; }
-            .bar-half { font-size: 11px; }
+            .bar-half { font-size: 12px; }
         }
     </style>
 </head>
@@ -167,9 +134,6 @@
     <div class="double-top-bar">
         <a href="https://wa.me/5573981021934?text=Olá! Quero mais informações sobre o NewsMaker." class="bar-half bar-support" target="_blank">
             SUPORTE WHATSAPP
-        </a>
-        <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="bar-half bar-gift" target="_blank">
-            <b>CLIQUE AQUI</b> 15% DESCONTO EXPIRA EM: <span class="timer-display countdown-timer">00:00:00:00</span>
         </a>
     </div>
 
@@ -211,46 +175,11 @@
         </div>
     </section>
 
-    <section class="container">
-        <div class="coupon-box">
-            <h2 style="color: #fff;">🔥 ÚLTIMA CHANCE: 15% DE DESCONTO</h2>
-            <p style="color: #ccc; margin: 15px 0; font-size: 18px;">Entre no canal ZAP, pegue seu cupom e receba estratégias secretas!</p>
-            
-            <div style="margin: 20px 0;">
-                <p style="color: #ff0000; font-weight: bold; margin-bottom: 10px;">A OFERTA ACABA EM:</p>
-                <span class="countdown-timer" style="font-size: 30px; font-weight: 800; color: #fff; background: #222; padding: 10px 20px; border-radius: 10px; border: 1px solid #ff0000;">00:00:00:00</span>
-            </div>
-
-            <a href="https://whatsapp.com/channel/0029VaYHGzs8F2pClWMfzw31" class="btn-comunidade" target="_blank">
-                ENTRAR NO CANAL E PEGAR CUPOM
-            </a>
-            <p style="color: #666; font-size: 12px; margin-top: 15px;">Válido apenas até 16/03/2026.</p>
-        </div>
-    </section>
-
     <footer style="padding: 40px 0; text-align: center; color: #555;">
         <p>&copy; 2026 NewsMaker - Itabuna, BA.</p>
     </footer>
 
     <script>
-        function updateTimer() {
-            const targetDate = new Date("March 16, 2026 23:59:59").getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-            if (difference <= 0) {
-                document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = "EXPIRADO");
-                return;
-            }
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            const display = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            document.querySelectorAll(".countdown-timer").forEach(el => el.innerHTML = display);
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
-
         // RASTREAMENTO AUTOMÁTICO DE CHECKOUT (HOTMART)
         document.querySelectorAll('a[href*="hotmart.com"]').forEach(function(botao) {
             botao.addEventListener('click', function() {
